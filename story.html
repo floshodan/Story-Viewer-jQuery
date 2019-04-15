@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="story.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Story</title>
+</head>
+<body>
+  <button type="button" onclick="test();">Click Me!</button>
+<script type="text/javascript">
+  function test () {
+    let overlay = document.createElement("DIV");
+    overlay.setAttribute("id", "view");
+    overlay.innerHTML = '<img src="close.svg" width="48px" height="48px" style="cursor: pointer;"></img> \
+    <div class="profile can-visible sv-profile-image sv-profile-name show">\
+<div class="image" style="background-image: url(pikachu1.gif);"></div>\
+<span class="name">Jack</span>\
+</div>';
+    document.body.appendChild(overlay);
+    let iframe = document.createElement("DIV");
+    iframe.setAttribute("id", "iframe");
+    iframe.innerHTML = '<video width="560" height="315" autoplay controls><source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4"></video>';
+    overlay.append(iframe);
+    overlay.onclick = function() {
+      overlay.remove();
+        };
+  }
+</script>
+
+</body>
+</html>
