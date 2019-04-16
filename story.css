@@ -1,0 +1,51 @@
+#view {
+  background-color: rgba(0, 0, 0, 0.8);
+  width:      100%;
+  height:     100%;
+  top:0;
+	left: 0;
+  position: absolute;
+  animation-name: open;
+  animation-duration: 0.1s;
+  transition: 0.1s;
+  overflow: hidden;
+  z-index: -1;
+}
+
+#iframe {
+    max-width: 560px; /* you have to have a size or this method doesn't work */
+    max-height: 315px;
+
+    position: absolute; /* positions according to the nearest parent */
+    top: 0; right: 0; /* confuse it i guess */
+    bottom: 0; left: 0;
+    margin: auto; /* make em equal */
+    z-index: 2;
+}
+
+#view img {
+  float: right;
+  margin: 40px;
+}
+
+.controls {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  flex-wrap: wrap;
+  background: rgba(0,0,0,0.7);
+
+}
+
+
+@keyframes open {
+  0% {
+    height: 550px;
+    opacity: 0.5;
+  }
+  100% {
+    height: 600px;
+    opacity: 1;
+  }
+}
