@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="story.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js" charset="utf-8"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Story</title>
@@ -13,19 +14,26 @@
   function test () {
     let overlay = document.createElement("DIV");
     overlay.setAttribute("id", "view");
-    overlay.innerHTML = '<img src="close.svg" width="48px" height="48px" style="cursor: pointer;"></img> \
-    <div class="profile can-visible sv-profile-image sv-profile-name show">\
-<div class="image" style="background-image: url(pikachu1.gif);"></div>\
-<span class="name">Jack</span>\
-</div>';
+    overlay.innerHTML = '<img src="close.svg" width="48px" height="48px" style="cursor: pointer;"></img>';
     document.body.appendChild(overlay);
     let iframe = document.createElement("DIV");
     iframe.setAttribute("id", "iframe");
-    iframe.innerHTML = '<video width="560" height="315" autoplay controls><source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4"></video>';
+    iframe.innerHTML = '<video width="560" height="315" autoplay><source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4"></video>';
+    let controls = document.createElement("DIV");
+    controls.innerHTML = '<div class="orange bar"><div class orange-juice"></div></div><div class="buttons"><button id="play-puse"></button>';
+    iframe.append(controls);
     overlay.append(iframe);
-    overlay.onclick = function() {
-      overlay.remove();
-        };
+    const player = document.querySelector('video');
+
+
+    player.onmousedown = function (e){
+      e.stopPropagation();
+      player.pause(e);
+    }
+
+    overlay.onclick = function(e) {
+      overlay.remove(e);
+    };
   }
 </script>
 
