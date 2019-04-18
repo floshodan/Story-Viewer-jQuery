@@ -20,6 +20,7 @@
     iframe.setAttribute("id", "iframe");
     iframe.innerHTML = '<video width="560" height="315" autoplay><source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4"></video>';
     let controls = document.createElement("DIV");
+    controls.setAttribute("class", "controls")
     controls.innerHTML = '<div class="orange bar"><div class orange-juice"></div></div><div class="buttons"><button id="play-puse"></button>';
     iframe.append(controls);
     overlay.append(iframe);
@@ -31,9 +32,14 @@
       player.pause(e);
     }
 
+    player.onmouseup = function () {
+      player.play();
+    }
+
+/*
     overlay.onclick = function(e) {
       overlay.remove(e);
-    };
+    }; */
   }
 </script>
 
